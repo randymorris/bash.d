@@ -1,0 +1,8 @@
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+alias pyc="find . -name \"*.pyc\" -delete; ls"
+alias tmux="tmux -2 -u -f ~/.config/tmux.conf"
+alias emacs="emacsclient -c -a ''"
+alias irssi="irssi --home=~/.config/irssi"
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+alias jekyll="~/.gem/ruby/1.9.1/bin/jekyll"
