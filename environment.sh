@@ -16,5 +16,3 @@ if [[ "$INSIDE_EMACS" =~ "comint" ]]; then
     export GIT_PAGER=/bin/cat
 fi
 export EDITOR="emacsclient -c -a ''"
-
-source local-environment.sh
