@@ -1,4 +1,4 @@
-alias ls="ls --color=auto"
+alias ls="ls --color=auto --ignore=*.pyc"
 alias grep="grep --color=auto"
 alias pyc="find . -name \"*.pyc\" -delete; ls"
 alias tmux="tmux -2 -u -f ~/.config/tmux.conf"
