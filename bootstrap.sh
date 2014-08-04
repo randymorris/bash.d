@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rm ~/.{profile,bash{rc,_profile}} > /dev/null
+rm -f ~/.{profile,bash{rc,_profile}} 2> /dev/null
 ln -s ~/.bash.d/bash_profile ~/.bashrc
 ln -s ~/.bash.d/bash_profile ~/.bash_profile
