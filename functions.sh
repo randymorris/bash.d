@@ -15,12 +15,16 @@ shop () {
 #  the current working copy.  If already at the root or no working
 #  copy is found, cd to $HOME.
 function cd() {
-    root=$(wcroot)
-    if [ $# -ne 0 ]; then
-        builtin cd "$1"
-    elif [ -n "$root" -a "$PWD" != "$root" ]; then
-        builtin cd "$root"
+    if which wcroot; then
+        root=$(wcroot)
+        if [ $# -ne 0 ]; then
+            builtin cd "$1"
+        elif [ -n "$root" -a "$PWD" != "$root" ]; then
+            builtin cd "$root"
+        else
+            builtin cd
+        fi
     else
-        builtin cd
+        builtin cd $*
     fi
 }
