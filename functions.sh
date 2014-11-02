@@ -15,7 +15,7 @@ shop () {
 #  the current working copy.  If already at the root or no working
 #  copy is found, cd to $HOME.
 function cd() {
-    if which wcroot; then
+    if which wcroot &> /dev/null; then
         root=$(wcroot)
         if [ $# -ne 0 ]; then
             builtin cd "$1"
