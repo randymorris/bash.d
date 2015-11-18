@@ -28,3 +28,24 @@ function cd() {
         builtin cd "$*"
     fi
 }
+
+
+# Launch ack inside emacs if possible, fall back to standard ack if
+# necessary.  This allows a nice interactive interface to deal with
+# ack results.
+function ack() {
+    pattern="${1//\"/\\\\\\\"}"  # sanitized for elisp
+    dir="${2:-$PWD}"
+
+    # Try running ack inside emacs
+    emacsclient -n -e \
+                "(progn \
+                   (x-focus-frame (car (frame-list))) \
+                   (ack (format \"%s \\\"%s\\\" %s\" ack-command \"$pattern\" \"$dir\")))" \
+        &> /dev/null
+
+    # If anything went wrong, fall back to standard ack
+    if [ $? -ne 0 ]; then
+        command ack "$@"
+    fi
+}
