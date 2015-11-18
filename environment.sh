@@ -10,7 +10,7 @@ fi
 export LESS="-RFX"
 export LESSHISTFILE=~/.history/less
 
-export PATH=~/bin/:$PATH
+export PATH=~/bin:$PATH
 
 if [[ "$INSIDE_EMACS" =~ "comint" ]]; then
     export GIT_PAGER=/bin/cat
